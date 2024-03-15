@@ -5,8 +5,8 @@ class TaskService{
     private $task;
 
     public function __construct(Connection $connection, Task $task){
-        $this->$connection = $connection->connect();
-        $this->$task = $task;
+        $this->connection = $connection->connect();
+        $this->task = $task;
     }
 
     public function Insert(){

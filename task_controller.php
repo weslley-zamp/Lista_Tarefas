@@ -11,7 +11,7 @@
 
         $connection = new Connection();
 
-        $taskService = new TaskService($conexao, $task);
+        $taskService = new TaskService($connection, $task);
 
         $taskService->Insert();
 
@@ -20,7 +20,7 @@
     $task = new Task();
     $connection = new Connection();
 
-    $taskService = new TaskService($conexao, $tarefa);
+    $taskService = new TaskService($connection, $task);
 
     $tasks = $taskService->toRecover();
 } else if($action == 'Update'){
@@ -30,7 +30,7 @@
     $connection = new Connection();
     $taskService = new TaskService($connection, $task);
     $taskService->Update();
-} else if($task == 'Remove'){
+} else if($action == 'Remove'){
     $task = new Task();
     $task->__set('id', $_GET['id']);
 
@@ -38,7 +38,7 @@
 
     $taskService = new TaskService($connection, $task);
     $taskService->Remove();
-}else if($task == 'markAccomplished'){
+}else if($action == 'markAccomplished'){
     $task = new Task();
     $task->__set('id',$_GET['id']->__set('id_status',1));
     
@@ -47,7 +47,7 @@
     $taskService = new TaskService($connection, $task);
     $taskService->markAccomplished();
 }
-else if($task == 'recoverTaskPendants'){
+else if($action == 'recoverTaskPendants'){
     $task = new Task();
     $task->__set('id_status', 0);
 
