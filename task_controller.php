@@ -1,7 +1,7 @@
 <?php
-    require "task.model.php";
-    require "task.service.php";
-    require "conexao.php";
+    require "./task.model.php";
+    require "./task.service.php";
+    require "./conexao.php";
 
     $action = isset($_GET['action']) ? $_GET['action'] : $action;
 
