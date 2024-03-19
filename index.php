@@ -1,7 +1,7 @@
 <?php
 
-	$action = 'recoverTaskPendants';
-	require './task_controller.php';
+	$acao = 'recuperarTarefasPendentes';
+	require 'tarefa_controller.php';
 
 	/*
 	echo '<pre>';
@@ -73,11 +73,11 @@
 			}
 
 			function remover(id) {
-				location.href = 'index.php?pag=index&action=remove&id='+id;
+				location.href = 'index.php?pag=index&acao=remover&id='+id;
 			}
 
 			function marcarRealizada(id) {
-				location.href = 'index.php?pag=index&action=markAccomplisheda&id='+id;
+				location.href = 'index.php?pag=index&acao=marcarRealizada&id='+id;
 			}
 		</script>
 
@@ -110,7 +110,7 @@
 								<h4>Tarefas pendentes</h4>
 								<hr />
 
-								<?php foreach($tasks as $indice => $tarefa) { ?>
+								<?php foreach($tarefas as $indice => $tarefa) { ?>
 									<div class="row mb-3 d-flex align-items-center tarefa">
 										<div class="col-sm-9" id="tarefa_<?= $tarefa->id ?>">
 											<?= $tarefa->tarefa ?>

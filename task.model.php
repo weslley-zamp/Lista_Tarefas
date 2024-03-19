@@ -2,16 +2,18 @@
 class Task{
     private $id;
     private $id_status;
-    private $task;
-    private$date_register; 
+    private $tarefa;
+    private $data_cadastrado; 
 
     public function __get($attribute){
         return $this->$attribute;
     }
 
     public function __set($attribute,$value){
-       $this->$attribute = $value;
-       return $this;
+        if(property_exists($this, $attribute)){
+            $this->$attribute = $value;
+        }
+        return $this;
     }
 }
 ?>

@@ -1,4 +1,7 @@
 <?php
+require './task_controller.php';
+require './conexao.php';
+require './task.model.php';
 class TaskService{
     private $connection;
 
@@ -51,7 +54,7 @@ class TaskService{
 
     public function markAccomplished(){
          //U - update
-         $query = 'update tb_tarefas id_status = ? where id = ?';
+         $query = 'update tb_tarefas set id_status = ? where id = ?';
          $stmt = $this->connection->prepare($query);
          $stmt->bindValue(1, $this->task->__get('id_status'));
          $stmt->bindValue(2, $this->task->__get('id'));

@@ -7,7 +7,7 @@
 
     if($action == 'Insert'){
         $task = new Task();
-        $task->__set('task', $_POST['task']);
+        $task->__set('task', $_POST['tarefa']);
 
         $connection = new Connection();
 
@@ -15,7 +15,7 @@
 
         $taskService->Insert();
 
-        header('Location: (próximos passos)');
+        header('Location: index.php');
 } else if ($action == 'toRecover'){
     $task = new Task();
     $connection = new Connection();
@@ -40,7 +40,8 @@
     $taskService->Remove();
 }else if($action == 'markAccomplished'){
     $task = new Task();
-    $task->__set('id',$_GET['id']->__set('id_status',1));
+    $task->__set('id', $_GET['id']);
+    $task->__set('id_status', 1);
     
     $connection = new Connection();
 

@@ -1,7 +1,7 @@
 <?php
 
-	$action = 'toRecover';
-	require './task_controller.php';
+	$acao = 'recuperar';
+	require 'tarefa_controller.php';
 
 	/*
 	echo '<pre>';
@@ -26,7 +26,7 @@
 
 				//criar um form de edição
 				let form = document.createElement('form')
-				form.action = 'task_controller.php?action=Update'
+				form.action = 'tarefa_controller.php?acao=atualizar'
 				form.method = 'post'
 				form.className = 'row'
 
@@ -109,17 +109,17 @@
 								<h4>Todas tarefas</h4>
 								<hr />
 
-								<?php foreach($tasks as $indice => $task) { ?>
+								<?php foreach($tarefas as $indice => $tarefa) { ?>
 									<div class="row mb-3 d-flex align-items-center tarefa">
-										<div class="col-sm-9" id="tarefa_<?= $task->id ?>">
-											<?= $task->task ?> (<?= $task->status ?>)
+										<div class="col-sm-9" id="tarefa_<?= $tarefa->id ?>">
+											<?= $tarefa->tarefa ?> (<?= $tarefa->status ?>)
 										</div>
 										<div class="col-sm-3 mt-2 d-flex justify-content-between">
-											<i class="fas fa-trash-alt fa-lg text-danger" onclick="remover(<?= $task->id ?>)"></i>
+											<i class="fas fa-trash-alt fa-lg text-danger" onclick="remover(<?= $tarefa->id ?>)"></i>
 											
-											<?php if($task->status == 'pendente') { ?>
-												<i class="fas fa-edit fa-lg text-info" onclick="editar(<?= $task->id ?>, '<?= $task->task	 ?>')"></i>
-												<i class="fas fa-check-square fa-lg text-success" onclick="marcarRealizada(<?= $task->id ?>)"></i>
+											<?php if($tarefa->status == 'pendente') { ?>
+												<i class="fas fa-edit fa-lg text-info" onclick="editar(<?= $tarefa->id ?>, '<?= $tarefa->tarefa ?>')"></i>
+												<i class="fas fa-check-square fa-lg text-success" onclick="marcarRealizada(<?= $tarefa->id ?>)"></i>
 											<?php } ?>
 										</div>
 									</div>
